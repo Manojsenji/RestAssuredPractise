@@ -12,7 +12,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'Github credentials',
-                    url: 'https://github.com/Manojsenji/RestAssuredPractise.git'
+                    url: 'https://github.com/Manojsenji/RestAssuredPractise.git123'
             }
         }
 
