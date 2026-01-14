@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+        jdk 'JDK'
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'Github credentials',
+                    url: 'https://github.com/Manojsenji/RestAssuredPractise.git'
+            }
+        }
+
+        stage('Build & Run API Tests') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'API tests executed successfully'
+        }
+        failure {
+            echo 'API tests failed'
+        }
+        always {
+            junit '**/target/surefire-reports/*.xml'
+        }
+    }
+}
