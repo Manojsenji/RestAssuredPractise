@@ -99,7 +99,7 @@ public class DiffWaysToCreatePostRequestBody {
 		{
 			Pojo_PostRequest data = new Pojo_PostRequest();
 			data.setName("Pojo2");
-			data.setPhone("3344556677");
+			data.setPhone("3344556678");
 			
 			Response response =given()
 					.contentType("application/json")
